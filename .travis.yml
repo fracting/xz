@@ -1,0 +1,32 @@
+os:
+  - linux
+
+env:
+  - WINEARCH=win32
+  - WINEARCH=""
+
+cache: apt
+
+before_install:
+  - "export DISPLAY=:99.0"
+  - "/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 800x600x16"
+
+before_script:
+  - SCRIPT_DIR=$(pwd)
+  - sudo add-apt-repository -y ppa:pipelight/stable
+  - sudo apt-get update -qq
+  - sudo apt-get install -y --install-recommends wine-staging wine-staging-compat
+  - wget https://github.com/fracting/msys2-scripts-deb/raw/master/msys2-scripts_20150722_i386.deb
+  - sudo dpkg -i msys2-scripts_20150722_i386.deb
+
+language: c
+
+compiler:
+  - gcc
+
+script:
+  - msys2-prepare
+  - msys2-wrapper "wget https://github.com/Alexpux/MSYS2-packages/raw/master/xz/PKGBUILD"
+  - msys2-wrapper "wget https://github.com/Alexpux/MSYS2-packages/raw/master/xz/xz-5.0.5-msys2.patch"
+  - msys2-wrapper "makepkg -s --noconfirm --noprogressbar --skippgpcheck -f"
+

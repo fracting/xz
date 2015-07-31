@@ -26,7 +26,7 @@ compiler:
 script:
   - srcdir=~/src
   - subdir=xz
-  - pkgbuild_repo=https://github.com/fracting/MINGW-packages/trunk/mingw32-w64-xz-git
+  - pkgbuild_repo=https://github.com/fracting/MINGW-packages/trunk/mingw-w64-xz-git
   - svn co ${pkgbuild_repo} ${srcdir}
   - ln -svf ${PWD} ${srcdir}/${subdir}
   - cp ${srcdir}/PKGBUILD ~

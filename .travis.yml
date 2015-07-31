@@ -12,9 +12,9 @@ before_install:
   - "/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 800x600x16"
 
 before_script:
-  - sudo add-apt-repository -y ppa:pipelight/stable
+  - sudo add-apt-repository -y ppa:pipelight/daily
   - sudo apt-get update -qq
-  - sudo apt-get install -y --install-recommends wine-staging wine-staging-compat
+  - sudo apt-get install -y --install-recommends wine-staging wine-staging-compat subversion
   - wget https://github.com/fracting/msys2-scripts-deb/raw/master/msys2-scripts_20150722_i386.deb
   - sudo dpkg -i msys2-scripts_20150722_i386.deb
 
@@ -24,8 +24,11 @@ compiler:
   - gcc
 
 script:
+  - srcdir=~/src
+  - subdir=xz
+  - pkgbuild_repo=https://github.com/fracting/MSYS2-packages/trunk/xz-git
+  - svn co ${pkgbuild_repo} ${srcdir}
+  - ln -svf ${PWD} ${srcdir}/${subdir}
+  - cp ${srcdir}/PKGBUILD ~
   - msys2-prepare
-  - msys2-wrapper "wget https://github.com/Alexpux/MSYS2-packages/raw/master/xz/PKGBUILD"
-  - msys2-wrapper "wget https://github.com/Alexpux/MSYS2-packages/raw/master/xz/xz-5.0.5-msys2.patch"
-  - msys2-wrapper "makepkg -s --noconfirm --noprogressbar --skippgpcheck -f"
-
+  - msys2-wrapper "makepkg -s --noconfirm --noprogressbar --noextract --skippgpcheck -f"

@@ -26,9 +26,9 @@ compiler:
 script:
   - srcdir=~/src
   - subdir=xz
-  - pkgbuild_repo=https://github.com/Alexpux/MSYS2-packages/trunk/xz-git
+  - pkgbuild_repo=https://github.com/fracting/MINGW-packages/trunk/mingw32-w64-xz-git
   - svn co ${pkgbuild_repo} ${srcdir}
   - ln -svf ${PWD} ${srcdir}/${subdir}
   - cp ${srcdir}/PKGBUILD ~
   - msys2-prepare
-  - msys2-wrapper "makepkg -s -f --noconfirm --noextract --skippgpcheck"
+  - msys2-wrapper "makepkg-mingw32 -s -f --noconfirm --noextract --skippgpcheck"

@@ -31,4 +31,5 @@ script:
   - ln -svf ${PWD} ${srcdir}/${subdir}
   - cp ${srcdir}/PKGBUILD ~
   - msys2-prepare
+  - msys2-wrapper "pacman -S --needed --noconfirm mingw-w64-i686-toolchain"
   - msys2-wrapper "makepkg-mingw32 -s -f --noconfirm --noextract --skippgpcheck"

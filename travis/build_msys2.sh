@@ -19,7 +19,7 @@ then
     rm -rf ${PACKAGES_ROOT}/${PKGBUILD_DIR}
 fi
 
-svn co https://github.com/fracting/MSYS2-packages/trunk/${PKGBUILD_DIR} ${PACKAGES_ROOT}/${PKGBUILD_DIR}
+svn co https://github.com/Alexpux/MSYS2-packages/trunk/${PKGBUILD_DIR} ${PACKAGES_ROOT}/${PKGBUILD_DIR}
 
 # Working around wine bug which causes msys2 git fail to clone remote repo
 cd ${PACKAGES_ROOT}/${PKGBUILD_DIR}

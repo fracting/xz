@@ -25,7 +25,7 @@ svn co https://github.com/Alexpux/MSYS2-packages/trunk/${PKGBUILD_DIR} ${PACKAGE
 cd ${PACKAGES_ROOT}/${PKGBUILD_DIR}
 mkdir src
 pushd src
-git clone -l ${REPO_PATH} ${PACKAGE}
+cp -r ${REPO_PATH} ${PACKAGE}
 cp -v ../* . || echo skip directory
 popd
 

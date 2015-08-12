@@ -1,0 +1,32 @@
+os:
+  - linux
+
+language: c
+
+compiler:
+  - gcc
+
+env:
+  - WINEARCH=win32 CACHE="--cache https://s3.amazonaws.com/fracting/msys2/pack/msys2-pack-20150512_v1_i686.tar.gz"
+  - WINEARCH=win64 CACHE="--cache https://s3.amazonaws.com/fracting/msys2/pack/msys2-pack-20150512_v1_x86_64.tar.gz"
+
+cache: apt
+
+before_install:
+  - "export DISPLAY=:99.0"
+  - "/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 800x600x16"
+  - if [ "${WINE_STABLE}" = true ]; then sudo add-apt-repository -y ppa:pipelight/stable; fi
+  - if [ "${WINE_STABLE}" != true ]; then sudo add-apt-repository -y ppa:pipelight/daily; fi
+  - sudo apt-get update -qq
+
+install:
+  - sudo apt-get install -y --install-recommends wine-staging wine-staging-compat
+  - MSYS2_SCRIPTS_DEB=msys2-scripts_20150811_all.deb
+  - wget https://s3.amazonaws.com/fracting/msys2/pack/${MSYS2_SCRIPTS_DEB}
+  - sudo dpkg -i ${MSYS2_SCRIPTS_DEB}
+
+before_script:
+  - msys2-init ${CACHE}
+
+script:
+  - ./travis/build_msys2.sh

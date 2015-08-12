@@ -29,6 +29,7 @@ cp -r ${REPO_PATH} ${PACKAGE}
 cp -v ../* . || echo skip directory
 popd
 
+makepkg -s -f --noconfirm --skippgpcheck --noextract ${NOCHECK} || echo install dependency
 # Emulate prepare(), which won't be called with --noextract
 (export srcdir=$(realpath src); . PKGBUILD; prepare)
 

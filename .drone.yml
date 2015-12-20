@@ -1,5 +1,6 @@
 build:
-  image: bradrydzewski/gcc:4.8
+    # image: bradrydzewski/gcc:4.8
+  image: gcc:4.8
   environment:
     - DEBIAN_FRONTEND=noninteractive
   commands:

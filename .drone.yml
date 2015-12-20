@@ -6,6 +6,9 @@ build:
     - export DEBIAN_FRONTEND=noninteractive
     - sudo apt-get update -y
     - sudo apt-get install -y autopoint
+    - sudo mkdir testsudodir
+    - sudo touch testsudotouch
+    - touch testtouch
     - mkdir testdir
     - ./autogen.sh
     - ./configure

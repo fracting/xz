@@ -7,6 +7,7 @@ build:
     - ls
     - echo $HOME
     - echo $DRONE_BUILD_DIR
+    - lsb_release -a
     - pwd
     - stat `pwd`
     - echo $USER

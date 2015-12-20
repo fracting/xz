@@ -1,5 +1,5 @@
 build:
-  image: bradrydzewski/gcc
+  image: bradrydzewski/gcc:4.8
   commands:
     - ./autogen.sh
     - ./configure

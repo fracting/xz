@@ -7,6 +7,7 @@ build:
     - sudo apt-get update -y
     - sudo apt-get install -y autopoint
     - ls
+    - echo $HOME
     - pwd
     - stat `pwd`
     - sudo mkdir testsudodir

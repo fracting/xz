@@ -1,6 +1,7 @@
 build:
   image: bradrydzewski/gcc:4.8
   commands:
+    - sudo apt-get install autopoint
     - ./autogen.sh
     - ./configure
     - make

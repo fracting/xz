@@ -8,6 +8,7 @@ build:
     - sudo apt-get install -y autopoint
     - ls
     - echo $HOME
+    - echo $DRONE_BUILD_DIR
     - pwd
     - stat `pwd`
     - sudo mkdir testsudodir

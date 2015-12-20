@@ -1,6 +1,5 @@
 build:
-    #  image: bradrydzewski/gcc:4.8
-  image: bradrydzewski/go:1.3
+  image: bradrydzewski/gcc:4.8
   environment:
     - DEBIAN_FRONTEND=noninteractive
   commands:

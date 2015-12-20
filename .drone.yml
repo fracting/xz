@@ -11,10 +11,10 @@ build:
     - stat `pwd`
     - echo $USER
     - touch testtouch
-    - sudo apt-get update -y
-    - sudo apt-get install -y autopoint
-    - sudo mkdir testsudodir
-    - sudo touch testsudotouch
+    - apt-get update -y
+    - apt-get install -y autopoint
+    - mkdir testsudodir
+    - touch testsudotouch
     - touch testtouch
     - mkdir testdir
     - ./autogen.sh

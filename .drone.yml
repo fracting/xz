@@ -1,5 +1,5 @@
 build:
-#  image: drone/golang:1.5
+  image: bradrydzewski/gcc
   commands:
     - ./autogen.sh
     - ./configure

@@ -1,6 +1,7 @@
 build:
 #  image: drone/golang:1.5
   commands:
+    - ./autogen.sh
     - ./configure
     - make
     - make test

@@ -9,6 +9,8 @@ build:
     - echo $DRONE_BUILD_DIR
     - pwd
     - stat `pwd`
+    - echo $USER
+    - touch testtouch
     - sudo apt-get update -y
     - sudo apt-get install -y autopoint
     - sudo mkdir testsudodir

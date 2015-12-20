@@ -1,5 +1,6 @@
 build:
   image: bradrydzewski/gcc:4.8
+  environment: DEBIAN_FRONTEND=noninteractive
   commands:
     - sudo apt-get update -y
     - sudo apt-get install -y autopoint

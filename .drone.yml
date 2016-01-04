@@ -2,6 +2,7 @@ build:
   image: fracting/msys32-docker
   commands:
     - wine --version
+    - ls ~/.wine || true
 
 notify:
   irc:

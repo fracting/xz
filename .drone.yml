@@ -3,7 +3,7 @@ build:
   commands:
     - wine --version
     - ls ~/.wine
-    - ALLOC_XVFB=true msys2-shell -c "hello drone"
+    - ALLOC_XVFB=true msys2-shell -c "echo hello drone"
 
 notify:
   irc:

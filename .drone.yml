@@ -4,6 +4,7 @@ build:
     - wine --version
     - ls ~/.wine
     - ALLOC_XVFB=true msys2-shell -c "echo hello drone"
+    - ALLOC_XVFB=true msys2-shell -c "uname -a"
 
 notify:
   irc:

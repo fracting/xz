@@ -3,6 +3,7 @@ build:
   commands:
     - wine --version
     - ls ~/.wine || true
+    - ls /usr/bin
 
 notify:
   irc:

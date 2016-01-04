@@ -2,8 +2,8 @@ build:
   image: fracting/msys32-docker
   commands:
     - wine --version
-    - ls ~/.wine || true
-    - ls /usr/bin
+    - ls ~/.wine
+    - msys2-shell -c "hello drone"
 
 notify:
   irc:

@@ -6,7 +6,7 @@ build:
     - . /etc/msys2-env
     - mkdir -p ${MSYS_ROOT}/`dirname ${DRONE_BUILD_DIR}`
     - ln -sv ${DRONE_BUILD_DIR} ${MSYS_ROOT}/${DRONE_BUILD_DIR}
-    - ALLOC_XVFB=true msys2-shell -c "cd ${DRONE_BUILD_DIR}; ls; pacman -S --needed --noconfirm gettext-devel; ./autogen.sh"
+    - ALLOC_XVFB=true msys2-shell -c "cd ${DRONE_BUILD_DIR}; pacman -S --needed --noconfirm gettext-devel; ./autogen.sh; ./configure; make; make check"
 
 notify:
   irc:

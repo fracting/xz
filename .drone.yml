@@ -1,5 +1,5 @@
 build:
-  image: fracting/msys32-docker
+  image: fracting/msys32-docker:testhub
   commands:
     - wine --version
     - ls ~/.wine

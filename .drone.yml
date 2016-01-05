@@ -3,9 +3,10 @@ build:
   commands:
     - wine --version
     - ls ~/.wine
-    - ALLOC_XVFB=true msys2-shell -c "echo hello drone"
-    - ALLOC_XVFB=true msys2-shell -c "uname -a"
-    - ALLOC_XVFB=true msys2-shell -c "uname -a"
+    - source /etc/msys2-env
+    - mkdir -p ${MSYS_ROOT}/`dirname ${DRONE_BUILD_DIR}`
+    - ln -sv ${DRONE_BUILD_DIR} ${MSYS_ROOT}/${DRONE_BUILD_DIR}
+    - ALLOC_XVFB=true msys2-shell -c "cd ${DRONE_BUILD_DIR}; ./autogen.sh"
 
 notify:
   irc:

@@ -3,10 +3,6 @@ build:
   commands:
     - wine --version
     - ls ~/.wine
-    - export HOME=/root
-    - echo $HOME
-    - ls /root -a
-    - ls /home/root -a
     - ALLOC_XVFB=true msys2-shell -c "echo hello drone"
     - ALLOC_XVFB=true msys2-shell -c "uname -a"
     - ALLOC_XVFB=true msys2-shell -c "uname -a"

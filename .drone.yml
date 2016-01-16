@@ -1,7 +1,7 @@
 debug: true
 
 build:
-  image: fracting/msys32-docker:latest
+  image: fracting/msys32-docker:local
   shell: ALLOC_XVFB=true /usr/bin/msys2-shell
   commands:
     - uname -a

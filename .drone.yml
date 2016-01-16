@@ -1,3 +1,5 @@
+debug: true
+
 build:
   image: fracting/msys32-docker:latest
   shell: /usr/bin/msys2-shell

@@ -2,7 +2,7 @@ debug: true
 
 build:
   image: fracting/msys32-docker:latest
-  shell: /usr/bin/msys2-shell
+  shell: ALLOC_XVFB=true /usr/bin/msys2-shell
   commands:
     - uname -a
     - ls -lh

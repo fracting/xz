@@ -1,11 +1,7 @@
 build:
-  image: fracting/msys32-docker:testhub
+  image: fracting/msys32-docker:latest
   commands:
-#    - . /etc/msys2-env
-#    - mkdir -p ${MSYS_ROOT}/`dirname ${DRONE_BUILD_DIR}`
-#    - ln -sv ${DRONE_BUILD_DIR} ${MSYS_ROOT}/${DRONE_BUILD_DIR}
-    - sleep 100
-    - ALLOC_XVFB=true msys2-shell -c "cd ${DRONE_BUILD_DIR}; pacman -S --needed --noconfirm gettext-devel; ./autogen.sh; ./configure; make; make check"
+    - uname -a
 
 notify:
   irc:

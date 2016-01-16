@@ -1,5 +1,6 @@
 build:
   image: fracting/msys32-docker:latest
+  shell: /usr/bin/msys2-shell
   commands:
     - uname -a
 
@@ -11,4 +12,3 @@ notify:
     server:
       host: chat.freenode.net
       port: 6667
-

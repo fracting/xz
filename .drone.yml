@@ -9,9 +9,8 @@ build:
 notify:
   irc:
     prefix: build
-    nick: drone
+    nick: xz
     channel: wine-zh
     server:
       host: chat.freenode.net
       port: 6667
-

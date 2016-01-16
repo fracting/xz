@@ -5,6 +5,8 @@ build:
   shell: /usr/bin/msys2-shell
   commands:
     - uname -a
+    - ls -lh
+    - pwd
 
 notify:
   irc:

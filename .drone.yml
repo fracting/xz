@@ -11,7 +11,7 @@ build:
     - echo $DRONE_BUILD_DIR
     - echo $CI
     - echo $DRONE
-    - pacman -S --noconfirmed --needed libiconv-devel gettext-devel
+    - pacman -S --noconfirm --needed libiconv-devel gettext-devel
     - ./autogen.sh
     - ./configure
     - make

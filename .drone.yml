@@ -2,15 +2,8 @@ debug: true
 
 build:
   image: fracting/msys32-docker:local
-  shell: ALLOC_XVFB=true /usr/bin/msys2-shell
+  shell: /usr/bin/msys2-shell
   commands:
-    - uname -a
-    - ls -lh
-    - pwd
-    - echo dummy
-    - echo $DRONE_BUILD_DIR
-    - echo $CI
-    - echo $DRONE
     - pacman -S --noconfirm --needed libiconv-devel gettext-devel
     - ./autogen.sh
     - ./configure

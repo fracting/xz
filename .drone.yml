@@ -8,6 +8,9 @@ build:
     - ls -lh
     - pwd
     - echo dummy
+    - echo $DRONE_BUILD_DIR
+    - echo $CI
+    - echo $DRONE
 
 notify:
   irc:

@@ -2,11 +2,11 @@ debug: true
 
 build:
   image: fracting/msys32-docker:local
-  shell: $$shell-path
+  shell: $$custom-shell
   commands:
-    - echo $$shell-path
-    - if [ $$shell-path = msys32 ]; then pacman -S --noconfirm --needed libiconv-devel gettext-devel; fi
-    - if [ $$shell-path = mingw32 ]; then pacman -S --noconfirm --needed mingw-w64-i686-pkg-config; fi
+    - echo $$custom-shell
+    - if [ $$custom-shell = msys32 ]; then pacman -S --noconfirm --needed libiconv-devel gettext-devel; fi
+    - if [ $$custom-shell = mingw32 ]; then pacman -S --noconfirm --needed mingw-w64-i686-pkg-config; fi
     - ./autogen.sh
     - ./configure
     - make
@@ -22,6 +22,6 @@ notify:
       port: 6667
 
 matrix:
-  shell-path:
+  custom-shell:
     - msys32
     - mingw32

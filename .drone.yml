@@ -6,19 +6,13 @@ build:
   commands:
     - echo $$custom-shell
     - echo $MSYSTEM
+    - if [ $$custom-shell = sh ]; then apt-get update -y; apt-get install build-essential; apt-get build-dep xz-utils; fi
     - if [ $$custom-shell = msys32 ]; then pacman -S --noconfirm --needed libiconv-devel gettext-devel; fi
     - if [ $$custom-shell = mingw32 ]; then pacman -S --noconfirm --needed mingw-w64-i686-pkg-config; fi
     - ./autogen.sh
     - ./configure
     - make
     - make check
-
-build:
-  image: fracting/msys32-docker:local
-  shell: sh
-  commands:
-    - echo haha dummy test.
-
 
 notify:
   irc:
@@ -31,5 +25,6 @@ notify:
 
 matrix:
   custom-shell:
+    - sh
     - msys32
     - mingw32

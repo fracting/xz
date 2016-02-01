@@ -4,7 +4,9 @@ build:
   image: fracting/msys32-docker:local
   shell: $$shell-path
   commands:
-    - pacman -S --noconfirm --needed libiconv-devel gettext-devel
+    - echo $$shell-path
+    - if [ $$shell-path = msys32 ]; then pacman -S --noconfirm --needed libiconv-devel gettext-devel; fi
+    - if [ $$shell-path = mingw32 ]; then pacman -S --noconfirm --needed mingw-w64-i686-pkg-config; fi
     - ./autogen.sh
     - ./configure
     - make
@@ -21,5 +23,5 @@ notify:
 
 matrix:
   shell-path:
-    - /usr/bin/msys2-shell
-    - msys2-shell
+    - msys32
+    - mingw32

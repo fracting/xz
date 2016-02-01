@@ -5,6 +5,7 @@ build:
   shell: $$custom-shell
   commands:
     - echo $$custom-shell
+    - echo $MSYSTEM
     - if [ $$custom-shell = msys32 ]; then pacman -S --noconfirm --needed libiconv-devel gettext-devel; fi
     - if [ $$custom-shell = mingw32 ]; then pacman -S --noconfirm --needed mingw-w64-i686-pkg-config; fi
     - ./autogen.sh

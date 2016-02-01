@@ -1,11 +1,10 @@
-debug: true
-
 build:
   image: fracting/msys32-docker:local
   shell: $$custom-shell
   commands:
     - echo $$custom-shell
     - echo $MSYSTEM
+    - echo $$testval
     - if [ $$custom-shell = sh ]; then apt-get update -y; apt-get install build-essential; apt-get build-dep xz-utils; fi
     - if [ $$custom-shell = msys32 ]; then pacman -S --noconfirm --needed libiconv-devel gettext-devel; fi
     - if [ $$custom-shell = mingw32 ]; then pacman -S --noconfirm --needed mingw-w64-i686-pkg-config; fi
@@ -24,7 +23,8 @@ notify:
       port: 6667
 
 matrix:
-  custom-shell:
-    - sh
-    - msys32
-    - mingw32
+    - custom-shell: sh
+      testval: haha1
+    - custom-shell: msys32
+      testval: haha2
+    - custom-shell: mingw32

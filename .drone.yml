@@ -2,7 +2,7 @@ debug: true
 
 build:
   image: fracting/msys32-docker:local
-  shell: msys2-shell
+  shell: $$shell-path
   commands:
     - pacman -S --noconfirm --needed libiconv-devel gettext-devel
     - ./autogen.sh
@@ -19,3 +19,7 @@ notify:
       host: chat.freenode.net
       port: 6667
 
+matrix:
+  shell-path:
+    - /usr/bin/msys2-shell
+    - msys2-shell

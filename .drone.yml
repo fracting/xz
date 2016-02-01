@@ -1,5 +1,5 @@
 build:
-  image: fracting/msys32-docker:local
+  image: fracting/msys32
   shell: $$myshell
   commands:
     - if [ $$myshell = sh ]; then apt-get update -y; apt-get install build-essential; apt-get build-dep xz-utils; fi

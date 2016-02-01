@@ -18,6 +18,7 @@ notify:
     server:
       host: chat.freenode.net
       port: 6667
+
   irc:
     prefix: build
     nick: xz

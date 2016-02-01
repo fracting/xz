@@ -12,6 +12,13 @@ build:
     - make
     - make check
 
+build:
+  image: fracting/msys32-docker:local
+  shell: sh
+  commands:
+    - echo haha dummy test.
+
+
 notify:
   irc:
     prefix: build

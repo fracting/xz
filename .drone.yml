@@ -2,7 +2,7 @@ debug: true
 
 build:
   image: fracting/msys32-docker:local
-  shell: /usr/bin/msys2-shell
+  shell: msys2-shell
   commands:
     - pacman -S --noconfirm --needed libiconv-devel gettext-devel
     - ./autogen.sh

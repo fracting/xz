@@ -14,14 +14,6 @@ notify:
   irc:
     prefix: build
     nick: xz
-    channel: wine-zh
-    server:
-      host: chat.freenode.net
-      port: 6667
-
-  irc:
-    prefix: build
-    nick: xz
     channel: msys2
     server:
       host: irc.oftc.net

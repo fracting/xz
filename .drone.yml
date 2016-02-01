@@ -21,6 +21,6 @@ notify:
 
 matrix:
   myshell:
-    - sh
+      #- sh
     - msys32
-    - mingw32
+      #- mingw32

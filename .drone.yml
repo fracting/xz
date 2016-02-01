@@ -1,12 +1,10 @@
 build:
   image: fracting/msys32-docker:local
-  shell: $$custom-shell
+  shell: $$myshell
   commands:
-    - echo $$custom-shell
-    - echo $MSYSTEM
-    - if [ $$custom-shell = sh ]; then apt-get update -y; apt-get install build-essential; apt-get build-dep xz-utils; fi
-    - if [ $$custom-shell = msys32 ]; then pacman -S --noconfirm --needed libiconv-devel gettext-devel; fi
-    - if [ $$custom-shell = mingw32 ]; then pacman -S --noconfirm --needed mingw-w64-i686-pkg-config; fi
+    - if [ $$myshell = sh ]; then apt-get update -y; apt-get install build-essential; apt-get build-dep xz-utils; fi
+    - if [ $$myshell = msys32 ]; then pacman -S --noconfirm --needed libiconv-devel gettext-devel; fi
+    - if [ $$myshell = mingw32 ]; then pacman -S --noconfirm --needed mingw-w64-i686-pkg-config; fi
     - ./autogen.sh
     - ./configure
     - make
@@ -20,9 +18,16 @@ notify:
     server:
       host: chat.freenode.net
       port: 6667
+  irc:
+    prefix: build
+    nick: xz
+    channel: msys2
+    server:
+      host: irc.oftc.net
+      port: 6667
 
 matrix:
-  custom-shell:
+  myshell:
     - sh
     - msys32
     - mingw32

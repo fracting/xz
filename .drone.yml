@@ -1,10 +1,9 @@
 build:
   image: fracting/msys32
-  shell: $$myshell
+  shell: msys32
   commands:
-    - if [ $$myshell = sh ]; then apt-get update -y; apt-get install build-essential; apt-get build-dep xz-utils; fi
-    - if [ $$myshell = msys32 ]; then pacman -S --noconfirm --needed libiconv-devel gettext-devel; fi
-    - if [ $$myshell = mingw32 ]; then pacman -S --noconfirm --needed mingw-w64-i686-pkg-config; fi
+    - if [ $$platform = msys32 ]; then pacman -S --noconfirm --needed libiconv-devel gettext-devel; fi
+    - if [ $$platform = mingw32 ]; then pacman -S --noconfirm --needed mingw-w64-i686-pkg-config; fi
     - ./autogen.sh
     - ./configure
     - make
@@ -20,7 +19,6 @@ notify:
       port: 6667
 
 matrix:
-  myshell:
-    - sh
+  platform:
     - msys32
     - mingw32

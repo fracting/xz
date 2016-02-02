@@ -2,12 +2,9 @@ build:
   image: fracting/msys32
   shell: msys32
   commands:
-    - if [ $$platform = msys32 ]; then pacman -S --noconfirm --needed libiconv-devel gettext-devel; fi
-    - if [ $$platform = mingw32 ]; then pacman -S --noconfirm --needed mingw-w64-i686-pkg-config; fi
-    - ./autogen.sh
-    - ./configure
-    - make
-    - make check
+    - svn co https://github.com/Alexpux/MINGW-packages/trunk/mingw-w64-xz-git
+    - cd mingw-w64-xz-git
+    - makepkg-mingw -f -s --noconfirm --skippgpcheck --noprogressbar
 
 notify:
   irc:
@@ -17,8 +14,3 @@ notify:
     server:
       host: irc.oftc.net
       port: 6667
-
-matrix:
-  platform:
-    - msys32
-    - mingw32

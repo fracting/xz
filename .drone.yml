@@ -4,7 +4,7 @@ build:
   commands:
     - svn co https://github.com/Alexpux/MINGW-packages/trunk/mingw-w64-xz-git
     - cd mingw-w64-xz-git
-    - (exit 5)
+    - ./exit_5.sh
     - makepkg-mingw -f -s --noconfirm --skippgpcheck --noprogressbar
 
 notify:

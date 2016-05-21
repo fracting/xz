@@ -1,17 +1,14 @@
 build:
-  image: fracting/msys32
+  image: teaci/msys32
   shell: msys32
   commands:
-    - svn co https://github.com/Alexpux/MINGW-packages/trunk/mingw-w64-xz-git
-    - ./exit_5.sh
-    - cd mingw-w64-xz-git
-    - makepkg-mingw -f -s --noconfirm --skippgpcheck --noprogressbar
+    - pacman -S --noconfirm mingw-w64-cross-crt
 
 notify:
   irc:
     prefix: build
     nick: xz
-    channel: msys2
+    channel: wine-zh
     server:
       host: irc.oftc.net
       port: 6667

@@ -2,7 +2,7 @@ build:
   image: teaci/msys32
   shell: msys32
   commands:
-    - pacman -S --noconfirm mingw-w64-cross-crt
+    - pacman -S --noconfirm mingw-w64-cross-crt-git
 
 notify:
   irc:

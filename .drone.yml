@@ -3,7 +3,9 @@ build:
   pull: true
   shell: mingw$$arch
   commands:
-    - pacman -S --noconfirm mingw-w64-$$target-pkg-config
+    - if [ $$arch = 32 ]; then target=i686; fi
+    - if [ $$arch = 64 ]; then target=x86_64; fi
+    - pacman -S --noconfirm mingw-w64-${target}-pkg-config
     - ./configure
     - make
     - make check
@@ -13,8 +15,6 @@ notify:
     webhook: https://webhooks.gitter.im/e/d8f2032e40a8e78a3882
 
 matrix:
-  include:
-    - arch: 64
-      target: x86_64
-    - arch: 32
-      target: i686
+  arch:
+    - 64
+    - 32

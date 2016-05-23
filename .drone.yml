@@ -6,6 +6,7 @@ build:
     - if [ $$arch = 32 ]; then target=i686; fi
     - if [ $$arch = 64 ]; then target=x86_64; fi
     - pacman -S --noconfirm mingw-w64-${target}-pkg-config
+    - ./autogen.sh
     - ./configure
     - make
     - make check

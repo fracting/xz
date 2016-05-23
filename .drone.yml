@@ -1,14 +1,20 @@
 build:
-  image: teaci/msys32
-  shell: msys32
+  image: teaci/msys$$arch
+  pull: true
+  shell: mingw$$arch
   commands:
-    - pacman -S --noconfirm mingw-w64-cross-crt-git
+    - pacman -S --noconfirm mingw-w64-$$target-pkg-config
+    - ./configure
+    - make
+    - make check
 
 notify:
-  irc:
-    prefix: build
-    nick: xz
-    channel: wine-zh
-    server:
-      host: irc.oftc.net
-      port: 6667
+  gitter:
+    webhook: https://webhooks.gitter.im/e/d8f2032e40a8e78a3882
+
+matrix:
+  include:
+    - arch: 64
+      target: x86_64
+    - arch: 32
+      target: i686

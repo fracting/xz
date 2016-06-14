@@ -1,3 +1,4 @@
+# Build configure for https://www.tea-ci.org (fork of Drone CI with Msys2 support)
 build:
   image: teaci/msys$$arch
   pull: true
@@ -7,7 +8,7 @@ build:
     - cmd /c "echo %WINDIR%"
     - if [ $$arch = 32 ]; then target=i686; fi
     - if [ $$arch = 64 ]; then target=x86_64; fi
-    - pacman -S --noconfirm mingw-w64-${target}-pkg-config
+    - pacman -S --needed --noconfirm --noprogressbar mingw-w64-${target}-pkg-config
     - ./autogen.sh
     - ./configure
     - make

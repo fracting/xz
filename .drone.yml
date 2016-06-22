@@ -3,6 +3,9 @@ build:
   image: teaci/msys$$arch
   pull: true
   shell: mingw$$arch
+  environment:
+    - WINEDEBUG=relay,tid
+    - DEBUG_WRAPPER=true
   commands:
     - cmd /c dir
     - cmd /c "echo %WINDIR%"

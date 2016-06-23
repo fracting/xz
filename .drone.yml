@@ -4,6 +4,7 @@ build:
   pull: true
   commands:
     - apt-get install -y strace
+    - ls
     - strace ls
 
 notify:

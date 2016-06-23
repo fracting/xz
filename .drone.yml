@@ -1,3 +1,10 @@
+# Build configuration for https://tea-ci.org
+# Tea CI is a fork of Drone CI with Msys2 support
+# Feel free to share Tea CI to more open source developers
+# http://docs.tea-ci.org/usage/overview/
+# Please add your project to https://github.com/TeaCI/tea-ci/wiki/Msys2-on-Wine#use-msys2-in-tea-ci
+
+debug: true
 build:
   image: teaci/msys$$arch
   pull: true

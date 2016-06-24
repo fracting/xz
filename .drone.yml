@@ -9,18 +9,9 @@ build:
   image: drone/golang:1.5
   pull: true
   commands:
-    - if [ $$id = 1 ]; then (exit 1); fi
-    - if [ $$id = 2 ]; then (exit 1); fi
-    - if [ $$id = 3 ]; then (exit 1); fi
-    - if [ $$id = 4 ]; then (exit 0); fi
+    - ls -al
+    - (exit 1)
 
 notify:
   gitter:
     webhook: https://webhooks.gitter.im/e/d8f2032e40a8e78a3882
-
-matrix:
-  id:
-    - 1
-    - 2
-    - 3
-    - 4

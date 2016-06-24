@@ -4,7 +4,7 @@
 # http://docs.tea-ci.org/usage/overview/
 # Please add your project to https://github.com/TeaCI/tea-ci/wiki/Msys2-on-Wine#use-msys2-in-tea-ci
 
-debug: true
+#debug: true
 build:
   image: drone/golang:1.5
   pull: true

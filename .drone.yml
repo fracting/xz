@@ -6,23 +6,21 @@
 
 debug: true
 build:
-  image: teaci/msys$$arch
+  image: drone/golang:1.5
   pull: true
-  shell: mingw$$arch
   commands:
-    - if [ $$arch = 32 ]; then target=i686; fi
-    - if [ $$arch = 64 ]; then target=x86_64; fi
-    - pacman -S --noconfirm --needed --noprogressbard mingw-w64-${target}-pkg-config
-    - ./autogen.sh
-    - ./configure
-    - make
-    - make check
+    - if [ $$id = 1 ]; then (exit 1); fi
+    - if [ $$id = 2 ]; then (exit 1); fi
+    - if [ $$id = 3 ]; then (exit 1); fi
+    - if [ $$id = 4 ]; then (exit 0); fi
 
 notify:
   gitter:
     webhook: https://webhooks.gitter.im/e/d8f2032e40a8e78a3882
 
 matrix:
-  arch:
-    - 64
-    - 32
+  id:
+    - 1
+    - 2
+    - 3
+    - 4

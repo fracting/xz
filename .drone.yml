@@ -15,8 +15,8 @@ build:
 
 # Workaround docker image limitation
 # There packages can't be preinstalled inside docker image because docker image does not support cygwin symlink.
-    - c:/setup-x86.exe -W -x autoconf,automake -q
-    - c:/setup-x86.exe --site http://mirrors.tea-ci.org/cygwin --local-package-dir Z:/tmp/cygwin -W -P autoconf,automake -q
+    - WINEDEBUG=-all c:/setup-x86.exe -W -x autoconf,automake -q &> /dev/null
+    - WINEDEBUG=-all c:/setup-x86.exe --site http://mirrors.tea-ci.org/cygwin --local-package-dir Z:/tmp/cygwin -W -P autoconf,automake -q &> /dev/null
     - ./autogen.sh
     - ./configure
     - make

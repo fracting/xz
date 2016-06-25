@@ -12,6 +12,11 @@ build:
   commands:
     - if [ $$arch = 32 ]; then target=i686; fi
     - if [ $$arch = 64 ]; then target=x86_64; fi
+
+# Workaround docker image limitation
+# There packages can't be preinstalled inside docker image because docker image does not support cygwin symlink.
+    - wget http://cygwin.com/setup-x86.exe
+    - ./setup-x86.exe --site http://mirrors.tea-ci.org/cygwin --local-package-dir Z:/tmp/cygwin -W -P autoconf,automake -q
     - ./autogen.sh
     - ./configure
     - make

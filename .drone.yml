@@ -8,7 +8,7 @@ debug: true
 build:
   image: teaci/cygwin$$arch
   pull: true
-  shell: mingw$$arch
+  shell: cygwin$$arch
   commands:
     - if [ $$arch = 32 ]; then target=i686; fi
     - if [ $$arch = 64 ]; then target=x86_64; fi

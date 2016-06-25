@@ -6,13 +6,12 @@
 
 debug: true
 build:
-  image: teaci/msys$$arch
+  image: teaci/cygwin$$arch
   pull: true
   shell: mingw$$arch
   commands:
     - if [ $$arch = 32 ]; then target=i686; fi
     - if [ $$arch = 64 ]; then target=x86_64; fi
-    - pacman -S --noconfirm --needed --noprogressbard mingw-w64-${target}-pkg-config
     - ./autogen.sh
     - ./configure
     - make
@@ -24,5 +23,5 @@ notify:
 
 matrix:
   arch:
-    - 64
+#    - 64
     - 32

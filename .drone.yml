@@ -20,6 +20,8 @@ build:
     - uname -s
     - uname -v
     - ./autogen.sh
+    - sh -x build-aux/config.guess
+    - sh -x ./configure.debug
     - sh -x ./configure
     - make
     - make check

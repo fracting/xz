@@ -20,7 +20,7 @@ build:
     - uname -s
     - uname -v
     - ./autogen.sh
-    - ./configure
+    - sh -x ./configure
     - make
     - make check
 

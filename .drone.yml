@@ -13,6 +13,8 @@ build:
     - hostname
     - uname
     - uname -a
+    - (uname -m); echo $?
+    - (uname -m) 2>/dev/null ; echo $?
     - uname -m
     - uname -r
     - uname -s

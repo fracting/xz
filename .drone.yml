@@ -10,6 +10,13 @@ build:
   pull: true
   shell: cygwin$$arch
   commands:
+    - hostname
+    - uname
+    - uname -a
+    - uname -m
+    - uname -r
+    - uname -s
+    - uname -v
     - ./autogen.sh
     - ./configure
     - make

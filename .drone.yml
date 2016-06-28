@@ -10,19 +10,7 @@ build:
   pull: true
   shell: cygwin$$arch
   commands:
-    - hostname
-    - uname
-    - uname -a
-    - (uname -m); echo $?
-    - (uname -m) 2>/dev/null ; echo $?
-    - uname -m
-    - uname -r
-    - uname -s
-    - uname -v
     - ./autogen.sh
-    - sh -x build-aux/config.guess
-    - sh -x ./configure.debug
-    - sh -x ./configure
     - make
     - make check
 

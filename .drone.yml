@@ -8,7 +8,7 @@ debug: true
 build:
   image: teaci/cygwin$$arch
   pull: true
-  shell: cygwin$$arch
+  shell: /bin/sh
   commands:
     - ./autogen.sh
     - make
